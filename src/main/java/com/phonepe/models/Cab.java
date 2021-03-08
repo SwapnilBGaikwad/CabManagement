@@ -1,4 +1,4 @@
-package com.phonepe;
+package com.phonepe.models;
 
 import lombok.Data;
 
@@ -11,6 +11,12 @@ public class Cab implements Comparable<Cab> {
     private String city;
     private String state;
     private Date availableFrom;
+
+    public Cab(String cabId) {
+        this.cabId = cabId;
+        this.availableFrom = new Date();
+        this.cabState = CabState.IDLE;
+    }
 
     public void changeState(CabState cabState) {
         this.cabState = cabState;
