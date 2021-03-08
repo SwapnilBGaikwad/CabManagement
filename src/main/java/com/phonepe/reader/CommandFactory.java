@@ -4,8 +4,6 @@ import com.phonepe.allocation.CabAllocator;
 import com.phonepe.command.*;
 import com.phonepe.location.LocationService;
 
-import java.util.UUID;
-
 public class CommandFactory {
     private CabAllocator cabAllocator;
     private LocationService locationService;
@@ -31,6 +29,12 @@ public class CommandFactory {
                 cabId = params[1];
                 city = params[2];
                 return new ChangeCity(locationService, cabId, city);
+            case "book_cab":
+                city = params[1];
+                return new BookCab(cabAllocator, city);
+            case "mark_available":
+                cabId = params[1];
+                return new MarkAvailableCab(cabAllocator, cabId);
             default:
                 return new ExitCommand();
         }
