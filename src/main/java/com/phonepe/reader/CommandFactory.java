@@ -1,10 +1,7 @@
 package com.phonepe.reader;
 
 import com.phonepe.allocation.CabAllocator;
-import com.phonepe.command.Command;
-import com.phonepe.command.ExitCommand;
-import com.phonepe.command.RegisterCab;
-import com.phonepe.command.RegisterCity;
+import com.phonepe.command.*;
 import com.phonepe.location.LocationService;
 
 import java.util.UUID;
@@ -30,6 +27,10 @@ public class CommandFactory {
                 city = params[1];
                 String state = params[2];
                 return new RegisterCity(locationService, city, state);
+            case "change_city":
+                cabId = params[1];
+                city = params[2];
+                return new ChangeCity(locationService, cabId, city);
             default:
                 return new ExitCommand();
         }

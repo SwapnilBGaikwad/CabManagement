@@ -24,10 +24,11 @@ public class LocationService {
         cabAllocator.registerCab(cab, city);
     }
 
-    public boolean changeCity(Cab cab, String city) {
+    public boolean changeCity(String cabId, String city) {
         if (!cityToStates.containsKey(city)) {
             return false;
         }
+        Cab cab = cabAllocator.getCab(cabId);
         if (city.equals(cab.getCity())) {
             return true;
         }

@@ -22,7 +22,7 @@ public class CabApplicationTest {
         Cab cab2 = new Cab("2");
         locationService.register(cab2, "Pune");
 
-        locationService.changeCity(cab2, "Blr");
+        locationService.changeCity(cab2.getCabId(), "Blr");
         System.out.println(cab1);
         System.out.println(cab2);
         waitTime(3);
