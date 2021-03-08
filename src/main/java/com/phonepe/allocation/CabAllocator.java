@@ -51,7 +51,7 @@ public class CabAllocator {
         Cab cab = cabIdToCabs.get(cabId);
         PriorityQueue<Cab> availableCabs = cityToAvailableCabs.get(cab.getCity());
         availableCabs.add(cab);
-        cab.setCabState(CabState.IDLE);
+        cab.changeState(CabState.IDLE);
         return true;
     }
 
