@@ -19,6 +19,9 @@ public class LocationService {
         if (!cityToStates.containsKey(city)) {
             throw new IllegalArgumentException("City not serviceable");
         }
+        if (cabAllocator.getCab(cab.getCabId()) != null) {
+            return;
+        }
         cab.setCity(city);
         cab.setState(cityToStates.get(city));
         cabAllocator.registerCab(cab, city);
