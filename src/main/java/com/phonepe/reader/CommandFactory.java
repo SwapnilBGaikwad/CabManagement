@@ -4,6 +4,7 @@ import com.phonepe.allocation.CabAllocator;
 import com.phonepe.command.Command;
 import com.phonepe.command.ExitCommand;
 import com.phonepe.command.RegisterCab;
+import com.phonepe.command.RegisterCity;
 import com.phonepe.location.LocationService;
 
 import java.util.UUID;
@@ -25,6 +26,10 @@ public class CommandFactory {
                 String cabId = params[1];
                 String city = params[2];
                 return new RegisterCab(locationService, cabId, city);
+            case "register_location":
+                city = params[1];
+                String state = params[2];
+                return new RegisterCity(locationService, city, state);
             default:
                 return new ExitCommand();
         }

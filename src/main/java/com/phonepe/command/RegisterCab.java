@@ -18,6 +18,6 @@ public class RegisterCab implements Command {
     public String execute() {
         Cab cab = new Cab(cabId);
         locationService.register(cab, city);
-        return null;
+        return String.format("Cab %s is registered for city %s", cabId, city);
     }
 }
